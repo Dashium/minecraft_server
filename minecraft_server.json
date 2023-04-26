@@ -1,0 +1,37 @@
+{
+    "name": "Minecraft Server",
+    "commands": [
+        {
+            "name": "install java",
+            "cmd": "sudo apt install openjdk-17-jre-headless -y"
+        },
+        {
+            "name": "install ufw",
+            "cmd": "sudo apt install ufw -y"
+        },
+        {
+            "name": "open port",
+            "cmd": "sudo ufw allow 25565"
+        },
+        {
+            "name": "create server dir",
+            "cmd": "mkdir minecraft_server"
+        },
+        {
+            "name": "download server file",
+            "cmd": "cd minecraft_server && wget https://piston-data.mojang.com/v1/objects/8f3112a1049751cc472ec13e397eade5336ca7ae/server.jar"
+        },
+        {
+            "name": "first run",
+            "cmd": "cd minecraft_server && sudo java -Xms1G -Xmx2G -jar server.jar nogui"
+        },
+        {
+            "name": "set eula",
+            "cmd": "cd minecraft_server && sudo sed -i 's/false/true/g' eula.txt"
+        },
+        {
+            "name": "start server",
+            "cmd": "cd minecraft_server && sudo java -Xms1G -Xmx2G -jar server.jar nogui"
+        }
+    ]
+}
